@@ -99,6 +99,13 @@ public class Player : MonoBehaviour
                 Die();
             }
         }
+
+         if (collision.gameObject.tag == "InstantDeath")
+         {
+            health -= 100;
+             Die();
+         }
+       
     }
 
     private IEnumerator BlinkRed()
@@ -110,6 +117,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Game scene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
